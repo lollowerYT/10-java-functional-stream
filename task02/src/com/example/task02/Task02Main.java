@@ -15,9 +15,9 @@ public class Task02Main {
     }
 
     public static IntStream cycleGrayCode(int n) {
+        int size = 1 << n; // 2^n
 
-        return null; // your implementation here
-
+        return IntStream.iterate(0, i -> (i + 1) % size)
+            .map(i -> i ^ (i >>> 1)); // преобразуем в Gray code
     }
-
 }
