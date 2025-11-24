@@ -22,7 +22,6 @@ public class Task03Main {
             Comparator<? super T> order,
             BiConsumer<? super T, ? super T> minMaxConsumer) {
     
-        // Сохраним элементы в список, потому что стрим можно пройти только один раз
         var list = stream.toList();
     
         if (list.isEmpty()) {
