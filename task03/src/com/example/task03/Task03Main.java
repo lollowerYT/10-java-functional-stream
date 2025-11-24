@@ -21,7 +21,18 @@ public class Task03Main {
             Stream<? extends T> stream,
             Comparator<? super T> order,
             BiConsumer<? super T, ? super T> minMaxConsumer) {
-
-        // your implementation here
+    
+        // Сохраним элементы в список, потому что стрим можно пройти только один раз
+        var list = stream.toList();
+    
+        if (list.isEmpty()) {
+            minMaxConsumer.accept(null, null);
+            return;
+        }
+    
+        T min = list.stream().min(order).orElse(null);
+        T max = list.stream().max(order).orElse(null);
+    
+        minMaxConsumer.accept(min, max);
     }
 }
